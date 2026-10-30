@@ -6,31 +6,39 @@
 
 * **Automated Cleanup**: Move desired files (e.g., documents, images, archives) to a secure target archive directory.
 
-* **Smart Trash & Archiving (Standard Mode)**:
-
-  * Files matching your specified extensions are moved to the target directory.
-
+* **Smart Trash & Intelligent Detection**:
+  * Files matching your specified extensions are safely moved to the target directory.
+  * **Intelligent File Recognition**: In addition to fixed extensions, Smart Trash analyzes candidate files for important keywords (e.g., invoices, receipts, tax documents, certificates, contracts), critical file types, and recent grace-period downloads to prevent accidental trashing of important documents.
+  * **Active Download Protection**: In-progress downloads (`.crdownload`, `.part`, `.download`, Office lock files) are automatically recognized and protected from premature deletion or movement.
   * Other files are moved to a temporary trash folder (`DBP_Trash`) within the target directory, where they are automatically deleted after 7 days.
 
-* **Portable Mode**:
+* **Recursive Subfolder Scanning & Cleaning**:
+  * Scans both the root source directory and its subfolders recursively.
+  * Extracted files matching your archive extensions or Smart Trash rules are archived to the target folder.
+  * Remaining unneeded files are moved to trash (or deleted in portable mode).
+  * Cleans up and removes empty subfolders after processing.
+  * Built-in safety boundary protections ensure nested target/trash directories are never mistakenly deleted.
 
-  * Lets you run quick, custom cleanups where matching files are archived, but **all other files are permanently and immediately deleted** (skipping the trash).
+* **Portable Mode**:
+  * Lets you run quick, custom cleanups where matching and important files are archived, but **all other files are permanently and immediately deleted** (skipping the trash).
+
+* **Direct Execution from GUI**:
+  * Instantly trigger a full cleanup run with trash retention directly from the main Configuration GUI ("Execute Cleanup Now / Jetzt bereinigen").
 
 * **Flexible Scheduling**:
-
   * Run checks at *Every startup*, *Daily*, *Weekly*, or *Monthly*.
 
 * **Background Autostart (Windows)**:
-
-  * Option to quietly run in the background on PC startup via Windows Task/VBS integration.
+  * Option to quietly run in the background on PC startup via Windows Task/VBS integration (with full UTF-8/BOM character encoding support).
 
 * **Multilingual Support**:
-
   * Fully localized in **English** and **Deutsch** (German).
 
 * **Complete System Integration & Uninstaller**:
-
   * Registers start menu shortcuts, Windows system tray notifications, and clean uninstallation entries (compatible with standard Windows apps and Revo Uninstaller).
+
+* **Modular Architecture**:
+  * Cleanly structured under the `dbp_core` package (`constants`, `config`, `i18n`, `smart_trash`, `cleaner`, `system`, `gui_config`, `gui_portable`).
 
 ## System Resource Usage
 
@@ -81,6 +89,10 @@ You can easily adjust:
 * **Target Folder**: The archive destination where important files are stored.
 
 * **Extensions**: Comma-separated file extensions to keep (e.g., `.pdf, .docx, .xlsx, .zip`).
+
+* **Smart Trash**: Enable or disable intelligent detection of important files and documents.
+
+* **Subfolder Cleaning**: Enable recursive scanning and empty folder cleanup.
 
 * **Interval & Max Log Size**: Tailor how often cleanups run and manage log file rotation limits.
 

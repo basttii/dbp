@@ -15,17 +15,25 @@
 
 <div class="node">
   <a name="dbp_cleaner.py"></a>
-  <a target="code" href="///D:/Entwicklung/dbp_cleaner.py" type="text/plain"><tt>dbp_cleaner.py</tt></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_cleaner.py" type="text/plain"><tt>dbp_cleaner.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#abc">abc</a>
- &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#copyreg">copyreg</a>
- &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings._win_cp_codecs">encodings._win_cp_codecs</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
@@ -154,7 +162,6 @@ imports:
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#heapq">heapq</a>
  &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#json">json</a>
  &#8226;   <a href="#keyword">keyword</a>
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
@@ -170,20 +177,12 @@ imports:
  &#8226;   <a href="#re._constants">re._constants</a>
  &#8226;   <a href="#re._parser">re._parser</a>
  &#8226;   <a href="#reprlib">reprlib</a>
- &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#time">time</a>
- &#8226;   <a href="#tkinter">tkinter</a>
- &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
- &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
- &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
- &#8226;   <a href="#winreg">winreg</a>
 
   </div>
 
@@ -1293,7 +1292,7 @@ imports:
 imported by:
     <a href="#ast">ast</a>
  &#8226;   <a href="#calendar">calendar</a>
- &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#inspect">inspect</a>
@@ -1976,9 +1975,259 @@ imports:
 imported by:
     <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#calendar">calendar</a>
- &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/__init__.py" type="text/plain"><tt>dbp_core</tt></a>
+<span class="moduletype">Package</span>  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.cleaner"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/cleaner.py" type="text/plain"><tt>dbp_core.cleaner</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#datetime">datetime</a>
+ &#8226;   <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.config"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/config.py" type="text/plain"><tt>dbp_core.config</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#json">json</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#tempfile">tempfile</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.constants"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/constants.py" type="text/plain"><tt>dbp_core.constants</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.gui_config"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/gui_config.py" type="text/plain"><tt>dbp_core.gui_config</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
+ &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.gui_portable"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/gui_portable.py" type="text/plain"><tt>dbp_core.gui_portable</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
+ &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.i18n"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/i18n.py" type="text/plain"><tt>dbp_core.i18n</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.main"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/main.py" type="text/plain"><tt>dbp_core.main</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#argparse">argparse</a>
+ &#8226;   <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.smart_trash"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/smart_trash.py" type="text/plain"><tt>dbp_core.smart_trash</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#time">time</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="dbp_core.system"></a>
+  <a target="code" href="///D:/Entwicklung/dbp_cleaner/dbp_core/system.py" type="text/plain"><tt>dbp_core.system</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#dbp_core">dbp_core</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.i18n">dbp_core.i18n</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#shutil">shutil</a>
+ &#8226;   <a href="#stat">stat</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
+ &#8226;   <a href="#tkinter">tkinter</a>
+ &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
+ &#8226;   <a href="#winreg">winreg</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.main">dbp_core.main</a>
 
   </div>
 
@@ -5505,7 +5754,6 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
 
   </div>
@@ -5635,8 +5883,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib">importlib</a>
- &#8226;   <a href="#importlib.abc">importlib.abc</a>
+    <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#traceback">traceback</a>
@@ -6226,7 +6473,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.config">dbp_core.config</a>
  &#8226;   <a href="#importlib.metadata">importlib.metadata</a>
  &#8226;   <a href="#json.decoder">json.decoder</a>
  &#8226;   <a href="#json.encoder">json.encoder</a>
@@ -6634,6 +6881,13 @@ imported by:
  &#8226;   <a href="#compression.zstd._zstdfile">compression.zstd._zstdfile</a>
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#functools">functools</a>
@@ -6979,6 +7233,7 @@ imported by:
  &#8226;   <a href="#csv">csv</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
  &#8226;   <a href="#difflib">difflib</a>
  &#8226;   <a href="#email._encoded_words">email._encoded_words</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
@@ -7209,7 +7464,8 @@ imports:
   <div class="import">
 imported by:
     <a href="#argparse">argparse</a>
- &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#pathlib">pathlib</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -7304,6 +7560,7 @@ imports:
   <div class="import">
 imported by:
     <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#genericpath">genericpath</a>
  &#8226;   <a href="#glob">glob</a>
  &#8226;   <a href="#netrc">netrc</a>
@@ -7434,7 +7691,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#os">os</a>
 
   </div>
@@ -7462,6 +7720,10 @@ imported by:
  &#8226;   <a href="#contextlib">contextlib</a>
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.constants">dbp_core.constants</a>
+ &#8226;   <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#decimal">decimal</a>
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
@@ -7583,7 +7845,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#importlib.resources._common">importlib.resources._common</a>
+    <a href="#dbp_core.config">dbp_core.config</a>
+ &#8226;   <a href="#importlib.resources._common">importlib.resources._common</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib.response">urllib.response</a>
 
@@ -7656,7 +7919,8 @@ imported by:
  &#8226;   <a href="#_pydatetime">_pydatetime</a>
  &#8226;   <a href="#_strptime">_strptime</a>
  &#8226;   <a href="#datetime">datetime</a>
- &#8226;   <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+ &#8226;   <a href="#dbp_core.cleaner">dbp_core.cleaner</a>
+ &#8226;   <a href="#dbp_core.smart_trash">dbp_core.smart_trash</a>
  &#8226;   <a href="#email._parseaddr">email._parseaddr</a>
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
@@ -7687,7 +7951,6 @@ imports:
  &#8226;   <a href="#os">os</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tkinter.commondialog">tkinter.commondialog</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
  &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
@@ -7699,7 +7962,9 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#tkinter.commondialog">tkinter.commondialog</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
  &#8226;   <a href="#tkinter.dialog">tkinter.dialog</a>
@@ -7722,8 +7987,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#tkinter">tkinter</a>
- &#8226;   <a href="#tkinter.filedialog">tkinter.filedialog</a>
+    <a href="#tkinter.filedialog">tkinter.filedialog</a>
  &#8226;   <a href="#tkinter.messagebox">tkinter.messagebox</a>
 
   </div>
@@ -7779,7 +8043,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
  &#8226;   <a href="#tkinter">tkinter</a>
 
   </div>
@@ -7797,7 +8062,9 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
+ &#8226;   <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#tkinter">tkinter</a>
  &#8226;   <a href="#tkinter.simpledialog">tkinter.simpledialog</a>
 
@@ -7834,7 +8101,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.gui_config">dbp_core.gui_config</a>
+ &#8226;   <a href="#dbp_core.gui_portable">dbp_core.gui_portable</a>
  &#8226;   <a href="#tkinter">tkinter</a>
 
   </div>
@@ -8271,7 +8539,7 @@ imported by:
   <a name="winreg"></a>
   <tt>winreg</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#dbp_cleaner.py">dbp_cleaner.py</a>
+    <a href="#dbp_core.system">dbp_core.system</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
