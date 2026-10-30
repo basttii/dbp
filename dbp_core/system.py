@@ -172,7 +172,7 @@ def setup_startmenu_shortcut(enable=True):
         'oLink.Save'
     ]
     try:
-        with open(temp_vbs, "w", encoding="utf-8-sig", errors="replace") as f:
+        with open(temp_vbs, "w", encoding="utf-16", errors="replace") as f:
             f.write("\r\n".join(vbs_lines))
         subprocess.run(
             ["cscript", "//NoLogo", temp_vbs],
@@ -259,8 +259,8 @@ def setup_autostart(enable):
             )
 
         try:
-            # UTF-8 mit BOM (utf-8-sig), damit Windows Script Host Zeichen fehlerfrei liest
-            with open(AUTOSTART_VBS, "w", encoding="utf-8-sig") as f:
+            # UTF-16 mit LE-BOM, damit Windows Script Host (WScript/CScript) alle Zeichen fehlerfrei liest
+            with open(AUTOSTART_VBS, "w", encoding="utf-16") as f:
                 f.write(vbs_content)
         except Exception as e:
             messagebox.showwarning(t("msg_error_title"), f"Autostart Error: {e}")
